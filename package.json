@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^0.13.3",
-    "react-router": "^0.13.3"
+    "react-router": "^0.13.3",
+    "superagent": "^1.3.0"
   },
   "devDependencies": {
     "babel-core": "^5.8.22",

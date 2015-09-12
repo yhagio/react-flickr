@@ -1,10 +1,5 @@
-## Photo viewer + Storage
-- Flicker Clone
-
-### TODO
-- Responsive Design
-- Complete client-side app
-- Flickr API
+## Simple Flicker Photo Search & Viewer
+- Use ES2015, React, BABEL, Webpack
 
 ### How to run locally
 
@@ -29,7 +24,6 @@ Open `index.html` in browser. Voila!
  - [Babel](https://babeljs.io/)
  - [Babel-Loader](https://github.com/babel/babel-loader)
  - [Webpack](http://webpack.github.io/)
-
 
 #### Thinking ...
 - Isomorphic with react-router + Node.js/Expressjs

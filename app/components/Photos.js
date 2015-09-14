@@ -9,8 +9,8 @@ class Photos extends React.Component{
       let title = `${photo.title}`;
 
       return (
-        <a href={source} target="_blank">
-          <img src={source} alt={title} />
+        <a href={source} target="_blank" className="imageBox">
+          <img src={source} alt={title} className="photoImage"/>
         </a>
       );
     });

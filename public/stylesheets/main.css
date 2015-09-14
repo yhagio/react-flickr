@@ -1,4 +1,20 @@
-img {
-  max-height: 300px;
-  max-width: 300px;
+.photoList {
+  line-height: 0;
+  -webkit-column-count: 5;
+  -webkit-column-gap: 0px;
+  -moz-column-count: 5;
+  -moz-column-gap: 0px;
+  column-count: 5;
+  column-gap: 0px;
+  padding: 5px;
+  overflow: auto;
+}
+
+.imageBox {
+}
+
+.photoImage {
+  width: 99% !important;
+  height: auto !important;
+  padding: 5px 0;
 }

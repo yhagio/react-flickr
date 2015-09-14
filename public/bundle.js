@@ -22019,8 +22019,8 @@
 
 	        return _react2["default"].createElement(
 	          "a",
-	          { href: source, target: "_blank" },
-	          _react2["default"].createElement("img", { src: source, alt: title })
+	          { href: source, target: "_blank", className: "imageBox" },
+	          _react2["default"].createElement("img", { src: source, alt: title, className: "photoImage" })
 	        );
 	      });
 

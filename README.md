@@ -24,6 +24,8 @@ Open `index.html` in browser. Voila!
  - [Babel](https://babeljs.io/)
  - [Babel-Loader](https://github.com/babel/babel-loader)
  - [Webpack](http://webpack.github.io/)
+ - [Seamless responsive photo grid CSS](https://css-tricks.com/seamless-responsive-photo-grid/)
+ - [Three Super Easy Ways to Pull Off a Masonry Layout](http://designshack.net/articles/css/masonry/)
 
 #### Thinking ...
 - Isomorphic with react-router + Node.js/Expressjs

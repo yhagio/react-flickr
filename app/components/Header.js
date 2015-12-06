@@ -9,7 +9,6 @@ class Header extends React.Component{
         </ul>
         <hr />
       </header>
-
     )
   }
 };

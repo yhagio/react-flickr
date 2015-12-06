@@ -1,7 +1,8 @@
 import React from 'react';
-import Header from './components/Header'
-import SearchBar from './components/SearchBar'
-import Photos from './components/Photos'
+import ReactDOM from 'react-dom';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import Photos from './components/Photos';
 
 class App extends React.Component{
   constructor(){
@@ -27,4 +28,4 @@ class App extends React.Component{
   }
 };
 
-React.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));

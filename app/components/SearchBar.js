@@ -1,21 +1,23 @@
 import React from 'react';
-import request from 'superagent';
 
 class SearchBar extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
     let apiKey = 'fda49c8cb3942dab1d64780f08ed71fe';
-    let searchKeyword = this.refs.photoKeyword.getDOMNode().value;
-    this.refs.photoKeyword.getDOMNode().value = '';
+    let searchKeyword = this.refs.photoKeyword.value;
+    this.refs.photoKeyword.value = '';
 
-    let url = `https://api.flickr.com/services/rest/?api_key=${apiKey}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=20&page=1&text=${searchKeyword}`;
-    request
-      .get(url)
-      .end((err, res)=> {
-        if (err) throw err;
-        this.props._getPhotos(res.body.photos.photo);
-      }.bind(this));
+    let url = `https://api.flickr.com/services/rest/?api_key=${apiKey}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=${searchKeyword}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        this.props._getPhotos(data.photos.photo);
+      })
+      .catch(error => {
+        throw error;
+      });
   }
 
   render(){

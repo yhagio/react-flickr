@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
+import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
 import Photos from './components/Photos';
 
@@ -19,10 +19,10 @@ class App extends React.Component{
 
   render(){
     return (
-      <div>
-        <Header />
+      <div className="container">
         <SearchBar _getPhotos={this.handleGetPhotos}/>
         <Photos data={this.state.photos}/>
+        <Footer />
       </div>
     )
   }

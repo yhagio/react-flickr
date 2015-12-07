@@ -23,10 +23,15 @@ class SearchBar extends React.Component{
   render(){
     return (
       <div className="">
-        <h3>Search</h3>
+        <h2 className="title">React <img className="heartIconTop" src={require("./iconmonstr-favorite-4-icon-24.png")} alt="heart icon" /> Flickr</h2>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" className="" ref="photoKeyword" />
-          <button type="submit" className="">Search on Flickr</button>
+          <input type="text" 
+            className="searchInput"
+            placeholder="Search keyword..." 
+            ref="photoKeyword"
+            required
+            autoFocus />
+          <button type="submit" className="searchButton">Search on Flickr</button>
         </form>
       </div>
     )

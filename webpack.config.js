@@ -1,7 +1,7 @@
 module.exports = {
-  entry: "./app/App.js",
+  entry: getEntrySources(),
   output: {
-    filename: "public/bundle.js"
+    filename: getOutput()
   },
   module: {
     loaders: [
@@ -20,3 +20,17 @@ module.exports = {
     ]
   }
 };
+
+function getEntrySources() {
+  if (process.env.NODE_ENV === 'test') {
+    return "./tests/Header.test.js"
+  }
+  return "./app/App.js"
+}
+
+function getOutput() {
+  if (process.env.NODE_ENV === 'test') {
+    return "tests/spec.js"
+  }
+  return "public/bundle.js"
+}

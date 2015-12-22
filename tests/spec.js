@@ -46,8 +46,6 @@
 
 	'use strict';
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -56,65 +54,26 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Footer = __webpack_require__(159);
+	var _reactAddonsTestUtils = __webpack_require__(159);
 
-	var _Footer2 = _interopRequireDefault(_Footer);
+	var _reactAddonsTestUtils2 = _interopRequireDefault(_reactAddonsTestUtils);
 
-	var _SearchBar = __webpack_require__(161);
+	var _Header = __webpack_require__(161);
 
-	var _SearchBar2 = _interopRequireDefault(_SearchBar);
-
-	var _Photos = __webpack_require__(162);
-
-	var _Photos2 = _interopRequireDefault(_Photos);
+	var _Header2 = _interopRequireDefault(_Header);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	describe('Header', function () {
+	  var component = undefined;
+	  beforeEach(function () {
+	    component = _reactAddonsTestUtils2.default.renderIntoDocument(_react2.default.createElement(_Header2.default, null));
+	  });
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var App = (function (_React$Component) {
-	  _inherits(App, _React$Component);
-
-	  function App() {
-	    _classCallCheck(this, App);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
-
-	    _this.state = {
-	      photos: []
-	    };
-	    _this.handleGetPhotos = _this.handleGetPhotos.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(App, [{
-	    key: 'handleGetPhotos',
-	    value: function handleGetPhotos(photos) {
-	      this.setState({ 'photos': photos });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
-	        _react2.default.createElement(_SearchBar2.default, { _getPhotos: this.handleGetPhotos }),
-	        _react2.default.createElement(_Photos2.default, { data: this.state.photos }),
-	        _react2.default.createElement(_Footer2.default, null)
-	      );
-	    }
-	  }]);
-
-	  return App;
-	})(_react2.default.Component);
-
-	;
-
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
+	  it('should have "React Flickr" as the childnode innerHTML', function () {
+	    expect(_reactDom2.default.findDOMNode(component).childNodes[0].innerHTML).toEqual("React Flickr");
+	  });
+	});
 
 /***/ },
 /* 1 */
@@ -19707,165 +19666,491 @@
 /* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Footer = (function (_React$Component) {
-	  _inherits(Footer, _React$Component);
-
-	  function Footer() {
-	    _classCallCheck(this, Footer);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).apply(this, arguments));
-	  }
-
-	  _createClass(Footer, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "footer",
-	        null,
-	        _react2.default.createElement(
-	          "p",
-	          { className: "footerNote" },
-	          "Built with ",
-	          _react2.default.createElement(
-	            "span",
-	            null,
-	            _react2.default.createElement("img", { className: "heartIcon", src: __webpack_require__(160), alt: "heart icon" })
-	          ),
-	          " Yuichi Hagio"
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Footer;
-	})(_react2.default.Component);
-
-	;
-
-	exports.default = Footer;
+	module.exports = __webpack_require__(160);
 
 /***/ },
 /* 160 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAABAElEQVR4AZWStVlEYRBFz8xT3C3dHCmCLtCQBJaQBraErWEbQBvAJdoiXoImOMy6y39/v9+5T4eawnFNhaM0KRz1UuF4kxmHskeev2J7kPWKb7uHspuXvTgs294sN2W73CQ34o/4kmt0uTESYp8LOzQ1zWim1eXCaNnkr037sNbGN5oz/hzaGSROgQR+XAJG8+IUeIELp8AFcuASMNqfdnioF6NB9vsNGAkwrnLUF340rtWK5K4Xzl1DJQeT3HTFb4xoVDQsHYtEzqJhWjXkS7Ytnh3y6STd4asB/zKnu3SVpyr+ZKfe8pbKFZzYrj95K7zxZnP/0m3dxkULuqC01T+qKmRLG50kvgAAAABJRU5ErkJggg=="
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactTestUtils
+	 */
+
+	'use strict';
+
+	var EventConstants = __webpack_require__(30);
+	var EventPluginHub = __webpack_require__(31);
+	var EventPropagators = __webpack_require__(73);
+	var React = __webpack_require__(2);
+	var ReactDOM = __webpack_require__(3);
+	var ReactElement = __webpack_require__(42);
+	var ReactBrowserEventEmitter = __webpack_require__(29);
+	var ReactCompositeComponent = __webpack_require__(63);
+	var ReactInstanceHandles = __webpack_require__(45);
+	var ReactInstanceMap = __webpack_require__(47);
+	var ReactMount = __webpack_require__(28);
+	var ReactUpdates = __webpack_require__(54);
+	var SyntheticEvent = __webpack_require__(77);
+
+	var assign = __webpack_require__(39);
+	var emptyObject = __webpack_require__(58);
+	var findDOMNode = __webpack_require__(91);
+	var invariant = __webpack_require__(13);
+
+	var topLevelTypes = EventConstants.topLevelTypes;
+
+	function Event(suffix) {}
+
+	/**
+	 * @class ReactTestUtils
+	 */
+
+	function findAllInRenderedTreeInternal(inst, test) {
+	  if (!inst || !inst.getPublicInstance) {
+	    return [];
+	  }
+	  var publicInst = inst.getPublicInstance();
+	  var ret = test(publicInst) ? [publicInst] : [];
+	  var currentElement = inst._currentElement;
+	  if (ReactTestUtils.isDOMComponent(publicInst)) {
+	    var renderedChildren = inst._renderedChildren;
+	    var key;
+	    for (key in renderedChildren) {
+	      if (!renderedChildren.hasOwnProperty(key)) {
+	        continue;
+	      }
+	      ret = ret.concat(findAllInRenderedTreeInternal(renderedChildren[key], test));
+	    }
+	  } else if (ReactElement.isValidElement(currentElement) && typeof currentElement.type === 'function') {
+	    ret = ret.concat(findAllInRenderedTreeInternal(inst._renderedComponent, test));
+	  }
+	  return ret;
+	}
+
+	/**
+	 * Todo: Support the entire DOM.scry query syntax. For now, these simple
+	 * utilities will suffice for testing purposes.
+	 * @lends ReactTestUtils
+	 */
+	var ReactTestUtils = {
+	  renderIntoDocument: function (instance) {
+	    var div = document.createElement('div');
+	    // None of our tests actually require attaching the container to the
+	    // DOM, and doing so creates a mess that we rely on test isolation to
+	    // clean up, so we're going to stop honoring the name of this method
+	    // (and probably rename it eventually) if no problems arise.
+	    // document.documentElement.appendChild(div);
+	    return ReactDOM.render(instance, div);
+	  },
+
+	  isElement: function (element) {
+	    return ReactElement.isValidElement(element);
+	  },
+
+	  isElementOfType: function (inst, convenienceConstructor) {
+	    return ReactElement.isValidElement(inst) && inst.type === convenienceConstructor;
+	  },
+
+	  isDOMComponent: function (inst) {
+	    return !!(inst && inst.nodeType === 1 && inst.tagName);
+	  },
+
+	  isDOMComponentElement: function (inst) {
+	    return !!(inst && ReactElement.isValidElement(inst) && !!inst.tagName);
+	  },
+
+	  isCompositeComponent: function (inst) {
+	    if (ReactTestUtils.isDOMComponent(inst)) {
+	      // Accessing inst.setState warns; just return false as that'll be what
+	      // this returns when we have DOM nodes as refs directly
+	      return false;
+	    }
+	    return inst != null && typeof inst.render === 'function' && typeof inst.setState === 'function';
+	  },
+
+	  isCompositeComponentWithType: function (inst, type) {
+	    if (!ReactTestUtils.isCompositeComponent(inst)) {
+	      return false;
+	    }
+	    var internalInstance = ReactInstanceMap.get(inst);
+	    var constructor = internalInstance._currentElement.type;
+
+	    return constructor === type;
+	  },
+
+	  isCompositeComponentElement: function (inst) {
+	    if (!ReactElement.isValidElement(inst)) {
+	      return false;
+	    }
+	    // We check the prototype of the type that will get mounted, not the
+	    // instance itself. This is a future proof way of duck typing.
+	    var prototype = inst.type.prototype;
+	    return typeof prototype.render === 'function' && typeof prototype.setState === 'function';
+	  },
+
+	  isCompositeComponentElementWithType: function (inst, type) {
+	    var internalInstance = ReactInstanceMap.get(inst);
+	    var constructor = internalInstance._currentElement.type;
+
+	    return !!(ReactTestUtils.isCompositeComponentElement(inst) && constructor === type);
+	  },
+
+	  getRenderedChildOfCompositeComponent: function (inst) {
+	    if (!ReactTestUtils.isCompositeComponent(inst)) {
+	      return null;
+	    }
+	    var internalInstance = ReactInstanceMap.get(inst);
+	    return internalInstance._renderedComponent.getPublicInstance();
+	  },
+
+	  findAllInRenderedTree: function (inst, test) {
+	    if (!inst) {
+	      return [];
+	    }
+	    !ReactTestUtils.isCompositeComponent(inst) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'findAllInRenderedTree(...): instance must be a composite component') : invariant(false) : undefined;
+	    return findAllInRenderedTreeInternal(ReactInstanceMap.get(inst), test);
+	  },
+
+	  /**
+	   * Finds all instance of components in the rendered tree that are DOM
+	   * components with the class name matching `className`.
+	   * @return {array} an array of all the matches.
+	   */
+	  scryRenderedDOMComponentsWithClass: function (root, classNames) {
+	    if (!Array.isArray(classNames)) {
+	      classNames = classNames.split(/\s+/);
+	    }
+	    return ReactTestUtils.findAllInRenderedTree(root, function (inst) {
+	      if (ReactTestUtils.isDOMComponent(inst)) {
+	        var className = inst.className;
+	        if (typeof className !== 'string') {
+	          // SVG, probably.
+	          className = inst.getAttribute('class') || '';
+	        }
+	        var classList = className.split(/\s+/);
+	        return classNames.every(function (name) {
+	          return classList.indexOf(name) !== -1;
+	        });
+	      }
+	      return false;
+	    });
+	  },
+
+	  /**
+	   * Like scryRenderedDOMComponentsWithClass but expects there to be one result,
+	   * and returns that one result, or throws exception if there is any other
+	   * number of matches besides one.
+	   * @return {!ReactDOMComponent} The one match.
+	   */
+	  findRenderedDOMComponentWithClass: function (root, className) {
+	    var all = ReactTestUtils.scryRenderedDOMComponentsWithClass(root, className);
+	    if (all.length !== 1) {
+	      throw new Error('Did not find exactly one match ' + '(found: ' + all.length + ') for class:' + className);
+	    }
+	    return all[0];
+	  },
+
+	  /**
+	   * Finds all instance of components in the rendered tree that are DOM
+	   * components with the tag name matching `tagName`.
+	   * @return {array} an array of all the matches.
+	   */
+	  scryRenderedDOMComponentsWithTag: function (root, tagName) {
+	    return ReactTestUtils.findAllInRenderedTree(root, function (inst) {
+	      return ReactTestUtils.isDOMComponent(inst) && inst.tagName.toUpperCase() === tagName.toUpperCase();
+	    });
+	  },
+
+	  /**
+	   * Like scryRenderedDOMComponentsWithTag but expects there to be one result,
+	   * and returns that one result, or throws exception if there is any other
+	   * number of matches besides one.
+	   * @return {!ReactDOMComponent} The one match.
+	   */
+	  findRenderedDOMComponentWithTag: function (root, tagName) {
+	    var all = ReactTestUtils.scryRenderedDOMComponentsWithTag(root, tagName);
+	    if (all.length !== 1) {
+	      throw new Error('Did not find exactly one match for tag:' + tagName);
+	    }
+	    return all[0];
+	  },
+
+	  /**
+	   * Finds all instances of components with type equal to `componentType`.
+	   * @return {array} an array of all the matches.
+	   */
+	  scryRenderedComponentsWithType: function (root, componentType) {
+	    return ReactTestUtils.findAllInRenderedTree(root, function (inst) {
+	      return ReactTestUtils.isCompositeComponentWithType(inst, componentType);
+	    });
+	  },
+
+	  /**
+	   * Same as `scryRenderedComponentsWithType` but expects there to be one result
+	   * and returns that one result, or throws exception if there is any other
+	   * number of matches besides one.
+	   * @return {!ReactComponent} The one match.
+	   */
+	  findRenderedComponentWithType: function (root, componentType) {
+	    var all = ReactTestUtils.scryRenderedComponentsWithType(root, componentType);
+	    if (all.length !== 1) {
+	      throw new Error('Did not find exactly one match for componentType:' + componentType + ' (found ' + all.length + ')');
+	    }
+	    return all[0];
+	  },
+
+	  /**
+	   * Pass a mocked component module to this method to augment it with
+	   * useful methods that allow it to be used as a dummy React component.
+	   * Instead of rendering as usual, the component will become a simple
+	   * <div> containing any provided children.
+	   *
+	   * @param {object} module the mock function object exported from a
+	   *                        module that defines the component to be mocked
+	   * @param {?string} mockTagName optional dummy root tag name to return
+	   *                              from render method (overrides
+	   *                              module.mockTagName if provided)
+	   * @return {object} the ReactTestUtils object (for chaining)
+	   */
+	  mockComponent: function (module, mockTagName) {
+	    mockTagName = mockTagName || module.mockTagName || 'div';
+
+	    module.prototype.render.mockImplementation(function () {
+	      return React.createElement(mockTagName, null, this.props.children);
+	    });
+
+	    return this;
+	  },
+
+	  /**
+	   * Simulates a top level event being dispatched from a raw event that occurred
+	   * on an `Element` node.
+	   * @param {Object} topLevelType A type from `EventConstants.topLevelTypes`
+	   * @param {!Element} node The dom to simulate an event occurring on.
+	   * @param {?Event} fakeNativeEvent Fake native event to use in SyntheticEvent.
+	   */
+	  simulateNativeEventOnNode: function (topLevelType, node, fakeNativeEvent) {
+	    fakeNativeEvent.target = node;
+	    ReactBrowserEventEmitter.ReactEventListener.dispatchEvent(topLevelType, fakeNativeEvent);
+	  },
+
+	  /**
+	   * Simulates a top level event being dispatched from a raw event that occurred
+	   * on the `ReactDOMComponent` `comp`.
+	   * @param {Object} topLevelType A type from `EventConstants.topLevelTypes`.
+	   * @param {!ReactDOMComponent} comp
+	   * @param {?Event} fakeNativeEvent Fake native event to use in SyntheticEvent.
+	   */
+	  simulateNativeEventOnDOMComponent: function (topLevelType, comp, fakeNativeEvent) {
+	    ReactTestUtils.simulateNativeEventOnNode(topLevelType, findDOMNode(comp), fakeNativeEvent);
+	  },
+
+	  nativeTouchData: function (x, y) {
+	    return {
+	      touches: [{ pageX: x, pageY: y }]
+	    };
+	  },
+
+	  createRenderer: function () {
+	    return new ReactShallowRenderer();
+	  },
+
+	  Simulate: null,
+	  SimulateNative: {}
+	};
+
+	/**
+	 * @class ReactShallowRenderer
+	 */
+	var ReactShallowRenderer = function () {
+	  this._instance = null;
+	};
+
+	ReactShallowRenderer.prototype.getRenderOutput = function () {
+	  return this._instance && this._instance._renderedComponent && this._instance._renderedComponent._renderedOutput || null;
+	};
+
+	var NoopInternalComponent = function (element) {
+	  this._renderedOutput = element;
+	  this._currentElement = element;
+	};
+
+	NoopInternalComponent.prototype = {
+
+	  mountComponent: function () {},
+
+	  receiveComponent: function (element) {
+	    this._renderedOutput = element;
+	    this._currentElement = element;
+	  },
+
+	  unmountComponent: function () {},
+
+	  getPublicInstance: function () {
+	    return null;
+	  }
+	};
+
+	var ShallowComponentWrapper = function () {};
+	assign(ShallowComponentWrapper.prototype, ReactCompositeComponent.Mixin, {
+	  _instantiateReactComponent: function (element) {
+	    return new NoopInternalComponent(element);
+	  },
+	  _replaceNodeWithMarkupByID: function () {},
+	  _renderValidatedComponent: ReactCompositeComponent.Mixin._renderValidatedComponentWithoutOwnerOrContext
+	});
+
+	ReactShallowRenderer.prototype.render = function (element, context) {
+	  !ReactElement.isValidElement(element) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'ReactShallowRenderer render(): Invalid component element.%s', typeof element === 'function' ? ' Instead of passing a component class, make sure to instantiate ' + 'it by passing it to React.createElement.' : '') : invariant(false) : undefined;
+	  !(typeof element.type !== 'string') ? process.env.NODE_ENV !== 'production' ? invariant(false, 'ReactShallowRenderer render(): Shallow rendering works only with custom ' + 'components, not primitives (%s). Instead of calling `.render(el)` and ' + 'inspecting the rendered output, look at `el.props` directly instead.', element.type) : invariant(false) : undefined;
+
+	  if (!context) {
+	    context = emptyObject;
+	  }
+	  var transaction = ReactUpdates.ReactReconcileTransaction.getPooled(false);
+	  this._render(element, transaction, context);
+	  ReactUpdates.ReactReconcileTransaction.release(transaction);
+	};
+
+	ReactShallowRenderer.prototype.unmount = function () {
+	  if (this._instance) {
+	    this._instance.unmountComponent();
+	  }
+	};
+
+	ReactShallowRenderer.prototype._render = function (element, transaction, context) {
+	  if (this._instance) {
+	    this._instance.receiveComponent(element, transaction, context);
+	  } else {
+	    var rootID = ReactInstanceHandles.createReactRootID();
+	    var instance = new ShallowComponentWrapper(element.type);
+	    instance.construct(element);
+
+	    instance.mountComponent(rootID, transaction, context);
+
+	    this._instance = instance;
+	  }
+	};
+
+	/**
+	 * Exports:
+	 *
+	 * - `ReactTestUtils.Simulate.click(Element/ReactDOMComponent)`
+	 * - `ReactTestUtils.Simulate.mouseMove(Element/ReactDOMComponent)`
+	 * - `ReactTestUtils.Simulate.change(Element/ReactDOMComponent)`
+	 * - ... (All keys from event plugin `eventTypes` objects)
+	 */
+	function makeSimulator(eventType) {
+	  return function (domComponentOrNode, eventData) {
+	    var node;
+	    if (ReactTestUtils.isDOMComponent(domComponentOrNode)) {
+	      node = findDOMNode(domComponentOrNode);
+	    } else if (domComponentOrNode.tagName) {
+	      node = domComponentOrNode;
+	    }
+
+	    var dispatchConfig = ReactBrowserEventEmitter.eventNameDispatchConfigs[eventType];
+
+	    var fakeNativeEvent = new Event();
+	    fakeNativeEvent.target = node;
+	    // We don't use SyntheticEvent.getPooled in order to not have to worry about
+	    // properly destroying any properties assigned from `eventData` upon release
+	    var event = new SyntheticEvent(dispatchConfig, ReactMount.getID(node), fakeNativeEvent, node);
+	    assign(event, eventData);
+
+	    if (dispatchConfig.phasedRegistrationNames) {
+	      EventPropagators.accumulateTwoPhaseDispatches(event);
+	    } else {
+	      EventPropagators.accumulateDirectDispatches(event);
+	    }
+
+	    ReactUpdates.batchedUpdates(function () {
+	      EventPluginHub.enqueueEvents(event);
+	      EventPluginHub.processEventQueue(true);
+	    });
+	  };
+	}
+
+	function buildSimulators() {
+	  ReactTestUtils.Simulate = {};
+
+	  var eventType;
+	  for (eventType in ReactBrowserEventEmitter.eventNameDispatchConfigs) {
+	    /**
+	     * @param {!Element|ReactDOMComponent} domComponentOrNode
+	     * @param {?object} eventData Fake event data to use in SyntheticEvent.
+	     */
+	    ReactTestUtils.Simulate[eventType] = makeSimulator(eventType);
+	  }
+	}
+
+	// Rebuild ReactTestUtils.Simulate whenever event plugins are injected
+	var oldInjectEventPluginOrder = EventPluginHub.injection.injectEventPluginOrder;
+	EventPluginHub.injection.injectEventPluginOrder = function () {
+	  oldInjectEventPluginOrder.apply(this, arguments);
+	  buildSimulators();
+	};
+	var oldInjectEventPlugins = EventPluginHub.injection.injectEventPluginsByName;
+	EventPluginHub.injection.injectEventPluginsByName = function () {
+	  oldInjectEventPlugins.apply(this, arguments);
+	  buildSimulators();
+	};
+
+	buildSimulators();
+
+	/**
+	 * Exports:
+	 *
+	 * - `ReactTestUtils.SimulateNative.click(Element/ReactDOMComponent)`
+	 * - `ReactTestUtils.SimulateNative.mouseMove(Element/ReactDOMComponent)`
+	 * - `ReactTestUtils.SimulateNative.mouseIn/ReactDOMComponent)`
+	 * - `ReactTestUtils.SimulateNative.mouseOut(Element/ReactDOMComponent)`
+	 * - ... (All keys from `EventConstants.topLevelTypes`)
+	 *
+	 * Note: Top level event types are a subset of the entire set of handler types
+	 * (which include a broader set of "synthetic" events). For example, onDragDone
+	 * is a synthetic event. Except when testing an event plugin or React's event
+	 * handling code specifically, you probably want to use ReactTestUtils.Simulate
+	 * to dispatch synthetic events.
+	 */
+
+	function makeNativeSimulator(eventType) {
+	  return function (domComponentOrNode, nativeEventData) {
+	    var fakeNativeEvent = new Event(eventType);
+	    assign(fakeNativeEvent, nativeEventData);
+	    if (ReactTestUtils.isDOMComponent(domComponentOrNode)) {
+	      ReactTestUtils.simulateNativeEventOnDOMComponent(eventType, domComponentOrNode, fakeNativeEvent);
+	    } else if (domComponentOrNode.tagName) {
+	      // Will allow on actual dom nodes.
+	      ReactTestUtils.simulateNativeEventOnNode(eventType, domComponentOrNode, fakeNativeEvent);
+	    }
+	  };
+	}
+
+	Object.keys(topLevelTypes).forEach(function (eventType) {
+	  // Event type is stored as 'topClick' - we transform that to 'click'
+	  var convenienceName = eventType.indexOf('top') === 0 ? eventType.charAt(3).toLowerCase() + eventType.substr(4) : eventType;
+	  /**
+	   * @param {!Element|ReactDOMComponent} domComponentOrNode
+	   * @param {?Event} nativeEventData Fake native event to use in SyntheticEvent.
+	   */
+	  ReactTestUtils.SimulateNative[convenienceName] = makeNativeSimulator(eventType);
+	});
+
+	module.exports = ReactTestUtils;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var SearchBar = (function (_React$Component) {
-	  _inherits(SearchBar, _React$Component);
-
-	  function SearchBar() {
-	    _classCallCheck(this, SearchBar);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBar).apply(this, arguments));
-	  }
-
-	  _createClass(SearchBar, [{
-	    key: 'handleSubmit',
-	    value: function handleSubmit(e) {
-	      var _this2 = this;
-
-	      e.preventDefault();
-	      var apiKey = 'fda49c8cb3942dab1d64780f08ed71fe';
-	      var searchKeyword = this.refs.photoKeyword.value;
-	      this.refs.photoKeyword.value = '';
-
-	      var url = 'https://api.flickr.com/services/rest/?api_key=' + apiKey + '&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=' + searchKeyword;
-
-	      fetch(url).then(function (response) {
-	        return response.json();
-	      }).then(function (data) {
-	        _this2.props._getPhotos(data.photos.photo);
-	      }).catch(function (error) {
-	        throw error;
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: '' },
-	        _react2.default.createElement(
-	          'h2',
-	          { className: 'title' },
-	          'React ',
-	          _react2.default.createElement('img', { className: 'heartIconTop', src: __webpack_require__(160), alt: 'heart icon' }),
-	          ' Flickr'
-	        ),
-	        _react2.default.createElement(
-	          'form',
-	          { onSubmit: this.handleSubmit.bind(this) },
-	          _react2.default.createElement('input', { type: 'text',
-	            className: 'searchInput',
-	            placeholder: 'Search keyword...',
-	            ref: 'photoKeyword',
-	            required: true,
-	            autoFocus: true }),
-	          _react2.default.createElement(
-	            'button',
-	            { type: 'submit', className: 'searchButton' },
-	            'Search on Flickr'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return SearchBar;
-	})(_react2.default.Component);
-
-	;
-
-	exports.default = SearchBar;
-
-/***/ },
-/* 162 */
-/***/ function(module, exports, __webpack_require__) {
-
 	"use strict";
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -19886,60 +20171,36 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Photos = (function (_React$Component) {
-	  _inherits(Photos, _React$Component);
+	var Header = (function (_React$Component) {
+	  _inherits(Header, _React$Component);
 
-	  function Photos() {
-	    _classCallCheck(this, Photos);
+	  function Header() {
+	    _classCallCheck(this, Header);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Photos).call(this));
-
-	    _this.state = { mounted: false };
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Header).apply(this, arguments));
 	  }
 
-	  _createClass(Photos, [{
-	    key: "componentDidMount",
-	    value: function componentDidMount() {
-	      this.setState({ mounted: true });
-	    }
-	  }, {
+	  _createClass(Header, [{
 	    key: "render",
 	    value: function render() {
-
-	      var photoNodes;
-
-	      if (this.state.mounted) {
-	        photoNodes = this.props.data.map(function (photo) {
-	          if (photo) {
-	            var id = photo.id;
-	            var source = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
-
-	            var title = "" + photo.title;
-
-	            return _react2.default.createElement(
-	              "a",
-	              { href: source, key: id, target: "_blank", className: "imageBox" },
-	              _react2.default.createElement("img", { src: source, alt: title, className: "photoImage" })
-	            );
-	          }
-	        });
-	      }
-
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "photoList" },
-	        photoNodes
+	        "header",
+	        { className: "header" },
+	        _react2.default.createElement(
+	          "h3",
+	          null,
+	          "React Flickr"
+	        )
 	      );
 	    }
 	  }]);
 
-	  return Photos;
+	  return Header;
 	})(_react2.default.Component);
 
 	;
 
-	exports.default = Photos;
+	exports.default = Header;
 
 /***/ }
 /******/ ]);

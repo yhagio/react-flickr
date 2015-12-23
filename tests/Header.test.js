@@ -10,8 +10,8 @@ describe('Header', ()=> {
     component = TestUtils.renderIntoDocument(<Header />);
   });
 
-  it('should have "React Flickr" as the childnode innerHTML', ()=> {
-    expect(ReactDOM.findDOMNode(component).childNodes[0].innerHTML).toEqual("React Flickr");
+  it('should have "Built with" as the childnode innerHTML', ()=> {
+    expect(ReactDOM.findDOMNode(component).childNodes[0].innerHTML).toContain("React Flickr");
   });
 
 });

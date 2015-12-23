@@ -23,14 +23,19 @@ module.exports = {
 
 function getEntrySources() {
   if (process.env.NODE_ENV === 'test') {
-    return "./tests/Header.test.js"
+    var arr = [
+      "./tests/Header.test.js",
+      "./tests/Footer.test.js",
+      "./tests/Photos.test.js"
+    ];
+    return arr;
   }
-  return "./app/App.js"
+  return "./app/App.js";
 }
 
 function getOutput() {
   if (process.env.NODE_ENV === 'test') {
-    return "tests/spec.js"
+    return "tests/spec.js";
   }
-  return "public/bundle.js"
+  return "public/bundle.js";
 }

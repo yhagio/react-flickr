@@ -20340,7 +20340,19 @@
 
 	describe('Photos', function () {
 	  var component = undefined;
-	  var photos = [{ 'id': '123ABC' }, { 'id': '456DEF' }];
+	  var photos = [{
+	    'id': '23296310324',
+	    'farm': 2,
+	    'server': '1462',
+	    'secret': 'a63a649a4c',
+	    'title': 'cat'
+	  }, {
+	    'id': '23816226782',
+	    'farm': 2,
+	    'server': '1512',
+	    'secret': '9135ac7e7a',
+	    'title': 'cat'
+	  }];
 
 	  beforeEach(function () {
 	    component = _reactAddonsTestUtils2.default.renderIntoDocument(_react2.default.createElement(_Photos2.default, { data: photos }));
@@ -20348,6 +20360,16 @@
 
 	  it('should have childnodes length of 2', function () {
 	    expect(_reactDom2.default.findDOMNode(component).childNodes.length).toBe(2);
+	  });
+
+	  it('should have correct reactid', function () {
+	    expect(_reactDom2.default.findDOMNode(component).childNodes[0].dataset.reactid).toContain('23296310324');
+	    expect(_reactDom2.default.findDOMNode(component).childNodes[1].dataset.reactid).toContain('23816226782');
+	  });
+
+	  it('should have correct soure url format', function () {
+	    expect(_reactDom2.default.findDOMNode(component).childNodes[0].href).toEqual('https://farm2.staticflickr.com/1462/23296310324_a63a649a4c.jpg');
+	    expect(_reactDom2.default.findDOMNode(component).childNodes[1].href).toEqual('https://farm2.staticflickr.com/1512/23816226782_9135ac7e7a.jpg');
 	  });
 	});
 

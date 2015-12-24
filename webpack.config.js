@@ -26,7 +26,8 @@ function getEntrySources() {
     var arr = [
       "./tests/Header.test.js",
       "./tests/Footer.test.js",
-      "./tests/Photos.test.js"
+      "./tests/Photos.test.js",
+      "./tests/SearchBar.test.js"
     ];
     return arr;
   }

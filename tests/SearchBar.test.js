@@ -11,8 +11,19 @@ describe('SearchBar', ()=> {
     component = TestUtils.renderIntoDocument(<SearchBar />);
   });
 
-  it('should fetch photos by handling submit function', ()=> {
+  it('should get input value', ()=> {
+    component.refs.photoKeyword.value = 'Hello';
+    let inputValue = ReactDOM.findDOMNode(component).childNodes[1].getElementByTagName('input').value = 'cat';
+    console.log('inputValue: ', inputValue);
+    debugger;
+    let form = TestUtils.findRenderedDOMComponentWithTag(component, 'form');
+    TestUtils.Simulate.submit(form);
+    console.log('KEY: ', component.refs.photoKeyword);
+    expect(component.refs.photoKeyword).toEqual('');
+  })
 
-  });
+  // it('should fetch photos by handling submit function', ()=> {
+
+  // });
 
 });

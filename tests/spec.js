@@ -20478,26 +20478,63 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	describe('SearchBar', function () {
-	  var component = undefined;
+	  var component = undefined,
+	      input = undefined,
+	      button = undefined;
 
 	  beforeEach(function () {
 	    component = _reactAddonsTestUtils2.default.renderIntoDocument(_react2.default.createElement(_SearchBar2.default, null));
+	    input = component.refs.photoKeyword;
+	    button = component.refs.button;
 	  });
 
 	  it('should get input value', function () {
-	    component.refs.photoKeyword.value = 'Hello';
-	    var inputValue = _reactDom2.default.findDOMNode(component).childNodes[1].getElementByTagName('input').value = 'cat';
-	    console.log('inputValue: ', inputValue);
-	    debugger;
-	    var form = _reactAddonsTestUtils2.default.findRenderedDOMComponentWithTag(component, 'form');
-	    _reactAddonsTestUtils2.default.Simulate.submit(form);
-	    console.log('KEY: ', component.refs.photoKeyword);
-	    expect(component.refs.photoKeyword).toEqual('');
+	    input.value = 'cat';
+	    _reactAddonsTestUtils2.default.Simulate.change(input);
+	    expect(input.value).toEqual('cat');
 	  });
 
-	  // it('should fetch photos by handling submit function', ()=> {
+	  it('should fetch data with user input', function (done) {
+	    var apiKey = 'fda49c8cb3942dab1d64780f08ed71fe';
+	    var searchKeyword = 'cat';
+	    var url = 'https://api.flickr.com/services/rest/?api_key=' + apiKey + '&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=' + searchKeyword;
+	    fetch(url).then(function (response) {
+	      return response.json();
+	    }).then(function (data) {
+	      expect(data.photos.photo.length).toEqual(50);
+	      done();
+	    }).catch(function (error) {
+	      throw error;
+	    });
+	  });
 
-	  // });
+	  it('should throw error on incorrect API KEY', function (done) {
+	    var apiKey = 'fda49c8cb3942dab1d64780f08ed71f';
+	    var searchKeyword = 'cat';
+	    var url = 'https://api.flickr.com/services/rest/?api_key=' + apiKey + '&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=' + searchKeyword;
+	    fetch(url).then(function (response) {
+	      return response.json();
+	    }).then(function (data) {
+	      console.log('data: ', data.photos.photo);
+	    }).catch(function (error) {
+	      expect(error).toBeDefined();
+	      done();
+	    });
+	  });
+
+	  it('should receives zero photos of unmatched keywords', function (done) {
+	    var apiKey = 'fda49c8cb3942dab1d64780f08ed71fe';
+	    var searchKeyword = '<script>aler(999);</script>';
+	    var url = 'https://api.flickr.com/services/rest/?api_key=' + apiKey + '&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=' + searchKeyword;
+	    fetch(url).then(function (response) {
+	      return response.json();
+	    }).then(function (data) {
+	      expect(data.photos.photo.length).toEqual(0);
+	      done();
+	    }).catch(function (error) {
+	      throw error;
+	    });
+	  });
 	});
 
 /***/ },
@@ -20577,7 +20614,10 @@
 	            autoFocus: true }),
 	          _react2.default.createElement(
 	            'button',
-	            { type: 'submit', className: 'searchButton' },
+	            {
+	              type: 'submit',
+	              ref: 'button',
+	              className: 'searchButton' },
 	            'Search on Flickr'
 	          )
 	        )

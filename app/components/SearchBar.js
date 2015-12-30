@@ -31,7 +31,10 @@ class SearchBar extends React.Component{
             ref="photoKeyword"
             required
             autoFocus />
-          <button type="submit" className="searchButton">Search on Flickr</button>
+          <button 
+            type="submit" 
+            ref="button"
+            className="searchButton">Search on Flickr</button>
         </form>
       </div>
     )
